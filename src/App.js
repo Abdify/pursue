@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { getPosts } from './actions/posts';
 import Form from './components/Form/Form';
 import Posts from './components/Posts/Posts';
-import memories from './images/3321395.png';
 import useStyles from './styles';
 
 const App = () => {
@@ -17,10 +16,9 @@ const App = () => {
     return (
         <Container maxwidth="lg">
             <AppBar className={classes.appBar} position="static" color="inherit">
-                <Typography className={classes.heading} variant="h3" align="center">
-                    The Project Manager
+                <Typography className={classes.heading} variant="h4" align="center">
+                    The Pursue Machine
                 </Typography>
-                <img className={classes.image} src={memories} alt="memories" />
             </AppBar>
 
             <Grow in>

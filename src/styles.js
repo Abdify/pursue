@@ -13,8 +13,5 @@ export default makeStyles(() => ({
     heading: {
         color: "#303f9f",
     },
-    image: {
-        marginLeft: "15px",
-        height: "50px",
-    },
+    
 }));
