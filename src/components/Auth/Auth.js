@@ -1,11 +1,13 @@
 import { Avatar, Button, Container, Grid, Paper, Typography } from '@material-ui/core';
 import { LockOutlined } from '@material-ui/icons';
 import React, { useState } from 'react';
+import { GoogleLogin } from 'react-google-login';
+import GoogleIcon from "./GoogleIcon";
 import Input from './Input';
 import useStyle from './styles';
 
 const Auth = () => {
-
+    console.log(process.env.REACT_APP_OAUTHID);
     const classes = useStyle();
     const [isSignup, setIsSignup] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +16,12 @@ const Auth = () => {
     const handleShowPassword = () => setShowPassword(!showPassword);
     const switchMode = () => setIsSignup(!isSignup);
     const handleSubmit = () => {}
+    const googleSuccess = (res) => {
+        console.log(res);
+    }
+    const googleFailure = () => {
+        console.log("Google sign in failed, try again");
+    }
     return (
         <Container component="main" maxWidth="xs">
             <Paper className={classes.paper} elevation={3}>
@@ -73,11 +81,33 @@ const Auth = () => {
                     >
                         {isSignup ? "Sign Up" : "Sign In"}
                     </Button>
-                    
+                    <GoogleLogin
+                        clientId={process.env.REACT_APP_OAUTHID}
+                        render={(renderProps) => (
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="secondary"
+                                onClick={renderProps.onClick}
+                                disabled={renderProps.disabled}
+                                startIcon={<GoogleIcon />}
+
+                            >
+                                Google Sign In
+                            </Button>
+                        )}
+                        onSuccess={googleSuccess}
+                        onFailure={googleFailure}
+                        cookiePolicy="single_host_origin"
+                    />
+
                     <Grid container justify="center">
                         <Grid item>
                             <Button onClick={switchMode}>
-                                {isSignup ? "Already have an account? Sign in" : "No account yet? Sign up"}
+                                {isSignup
+                                    ? "Already have an account? Sign in"
+                                    : "No account yet? Sign up"}
                             </Button>
                         </Grid>
                     </Grid>
