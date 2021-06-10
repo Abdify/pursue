@@ -1,7 +1,7 @@
 import { Button, Paper, TextField, Typography } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FileBase from "react-file-base64";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
 import useStyles from "./styles";
 
@@ -13,15 +13,30 @@ const Form = ({ currentId, setCurrentId }) => {
         tags: "",
         selectedFile: "",
     });
+    const post = useSelector((state) => state.posts.find(p => p._id === currentId));
+
+    useEffect(() => {
+        post && setPostData(post);
+    }, [post]);
 
     const classes = useStyles();
     const dispatch = useDispatch();
-    const clear = () => {};
+    const clear = () => {
+        setCurrentId(null);
+        setPostData({
+            creator: "",
+            title: "",
+            message: "",
+            tags: "",
+            selectedFile: "",
+        });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if(currentId) dispatch(updatePost(currentId, postData));
         else dispatch(createPost(postData));
+        clear();
     };
 
     return (
@@ -32,7 +47,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 className={`${classes.root} ${classes.form}`}
                 onSubmit={handleSubmit}
             >
-                <Typography variant="h6">Create Project</Typography>
+                <Typography variant="h6">{currentId ? "Edit" : "Create"} Project</Typography>
                 <TextField
                     name="creator"
                     variant="outlined"
