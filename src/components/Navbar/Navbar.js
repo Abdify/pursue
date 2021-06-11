@@ -49,7 +49,7 @@ const Navbar = () => {
                     variant="h5"
                     align="center"
                 >
-                    The Pursue Machine
+                    Pursue
                 </Typography>
             </div>
             <Toolbar className={classes.toolbar}>

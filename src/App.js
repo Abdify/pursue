@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
 import Home from './components/Home/Home';
 import Learn from "./components/Learn/Learn";
+import Subjects from "./components/Learn/Subjects/Subjects";
 import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
@@ -17,6 +18,9 @@ const App = () => {
                     </Route>
                     <Route path="/learn">
                         <Learn />
+                    </Route>
+                    <Route path="/classes/:id">
+                        <Subjects />
                     </Route>
                     <Route exact path="/auth">
                         <Auth />

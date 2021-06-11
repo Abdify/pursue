@@ -2,10 +2,8 @@ import { Grid } from "@material-ui/core";
 import React from "react";
 import PostSkeleton from "../../Skeletons/PostSkeleton";
 import Class from "./Class/Class";
-import useStyles from "./styles";
 
 const Classes = () => {
-    const classes = useStyles();
 
     const classList = [
         {
@@ -29,7 +27,7 @@ const Classes = () => {
     return !classList.length ? (
         <PostSkeleton />
     ) : (
-        <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+        <Grid container alignItems="stretch" spacing={3}>
             {classList.map((cls) => (
                 <Grid key={cls._id} item xs={12} sm={6} md={4}>
                     <Class cls={cls} />
