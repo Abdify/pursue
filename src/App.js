@@ -2,6 +2,7 @@ import { Container } from "@material-ui/core";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
+import Dashboard from "./components/Dashboard/Dashboard";
 import Home from './components/Home/Home';
 import Learn from "./components/Learn/Learn";
 import Subjects from "./components/Learn/Subjects/Subjects";
@@ -22,7 +23,10 @@ const App = () => {
                     <Route path="/classes/:id">
                         <Subjects />
                     </Route>
-                    <Route exact path="/auth">
+                    <Route path="/dashboard">
+                        <Dashboard />
+                    </Route>
+                    <Route path="/auth">
                         <Auth />
                     </Route>
                 </Switch>

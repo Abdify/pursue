@@ -72,7 +72,7 @@ const Navbar = () => {
                 </Button>
                 {user?.result ? (
                     <>
-                        <Button color="primary" component={Link} to="/profile">
+                        <Button color="primary" component={Link} to="/dashboard">
                             {user?.result.name}
                         </Button>
                         <Button className={classes.logout} color="secondary" onClick={logOut}>
