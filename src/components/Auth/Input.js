@@ -14,8 +14,8 @@ const Input = ({half, name, type, label, autoFocus, handleChange, handleShowPass
                 type={type}
                 onChange={handleChange}
                 autoFocus={autoFocus}
-                inputProps={name === "password" ? {
-                    endadornment: (
+                InputProps={name === "password" ? {
+                    endAdornment: (
                         <InputAdornment position="end">
                             <IconButton onClick={handleShowPassword}>
                                 {type === "password" ? <Visibility /> : <VisibilityOff />}

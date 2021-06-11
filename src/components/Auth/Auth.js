@@ -22,7 +22,10 @@ const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleShowPassword = () => setShowPassword(!showPassword);
-    const switchMode = () => setIsSignup(!isSignup);
+    const switchMode = () => {
+        setIsSignup(!isSignup);
+        setShowPassword(false);
+    };
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
     }
