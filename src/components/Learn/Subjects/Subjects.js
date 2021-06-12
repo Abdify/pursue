@@ -1,28 +1,18 @@
 import { Container, Grid, Grow } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { list } from "../../../data/subjects";
 import PostSkeleton from "../../Skeletons/PostSkeleton";
 import Subject from "./Subject/Subject";
 
 const Subjects = () => {
-
-    const subjectsList = [
-        {
-            _id: 1,
-            image: "",
-            title: "MATH",
-            description: "Learn the complex topics of Math in a simple way!",
-            tags: ["advance"],
-            viewCount: 0,
-        },
-        {
-            _id: 2,
-            image: "",
-            title: "CSE",
-            description: "Computer Science and Engineering",
-            tags: ["advance"],
-            viewCount: 0,
-        },
-    ];
+    const {classId} = useParams();
+    const [subjectsList, setSubjectsList] = useState([]);
+    console.log(classId)
+    
+    useEffect(() => {
+        setSubjectsList(list.filter(s => s.classId === +classId))
+    }, [])
 
     return !subjectsList.length ? (
         <PostSkeleton />

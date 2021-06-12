@@ -1,28 +1,16 @@
 import { Grid } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { list } from "../../../data/classes";
 import PostSkeleton from "../../Skeletons/PostSkeleton";
 import Class from "./Class/Class";
 
 const Classes = () => {
+    const [classList, setClassList] = useState([]);
 
-    const classList = [
-        {
-            _id: 1,
-            image: "",
-            title: "MATH",
-            description: "Learn the complex topics of Math in a simple way!",
-            tags: ["advance"],
-            viewCount: 0,
-        },
-        {
-            _id: 2,
-            image: "",
-            title: "CSE",
-            description: "Computer Science and Engineering",
-            tags: ["advance"],
-            viewCount: 0,
-        },
-    ];
+    useEffect(() => {
+        setClassList(list);
+    }, []);
+
 
     return !classList.length ? (
         <PostSkeleton />
