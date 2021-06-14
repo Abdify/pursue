@@ -5,10 +5,9 @@ import Auth from "./components/Auth/Auth";
 import CheckUser from "./components/Auth/CheckUser";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Home from './components/Home/Home';
-import ChapterDetail from './components/Learn/Chapters/ChapterDetail/ChapterDetail';
-import Chapters from "./components/Learn/Chapters/Chapters";
+import ChapterDetail from "./components/Learn/Chapters/ChapterDetail";
+import CourseDetail from "./components/Learn/Courses/CourseDetail/CourseDetail";
 import Learn from "./components/Learn/Learn";
-import Subjects from "./components/Learn/Subjects/Subjects";
 import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
@@ -26,18 +25,15 @@ const App = () => {
                         <Navbar />
                         <Learn />
                     </Route>
-                    <Route path="/classes/:classId">
+                    <Route exact path="/courses/:courseId">
                         <Navbar />
-                        <Subjects />
+                        <CourseDetail />
                     </Route>
-                    <Route path="/subjects/:subjectId">
-                        <Navbar />
-                        <Chapters />
-                    </Route>
-                    <Route path="/chapters/:chapterId">
+                    <Route path="/courses/:courseId/:chapterId">
                         <Navbar />
                         <ChapterDetail />
                     </Route>
+                    
                     <Route path="/dashboard">
                         <Dashboard />
                     </Route>

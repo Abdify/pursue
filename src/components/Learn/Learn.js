@@ -1,17 +1,16 @@
 import { Container, Grid, Grow } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getPosts } from '../../actions/posts';
-import Classes from './Classes/Classes';
+import { getCourses } from '../../actions/courses';
+import Courses from './Courses/Courses';
 import useStyles from "./styles";
 
 const Learn = () => {
         const classes = useStyles();
         const dispatch = useDispatch();
-        const [currentId, setCurrentId] = useState(null);
 
         useEffect(() => {
-            dispatch(getPosts());
+            dispatch(getCourses());
         }, [dispatch]);
 
     return (
@@ -24,7 +23,7 @@ const Learn = () => {
                     alignItems="stretch"
                 >
                     <Grid item xs={12}>
-                        <Classes />
+                        <Courses />
                     </Grid>
                     {/* <Grid item xs={12} sm={4}>
                         <Form currentId={currentId} setCurrentId={setCurrentId} />
