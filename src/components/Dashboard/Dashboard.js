@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Switch, useHistory } from 'react-router';
+import CreateChapter from "./CreateChapter/CreateChapter";
 import CreateCourse from './CreateCourse/CreateCourse';
-import CreateSubject from "./CreateSubject/CreateSubject";
 import ResponsiveDrawer from './Sidebar/Sidebar';
 import useStyles from "./styles";
 
@@ -24,8 +24,11 @@ const Dashboard = () => {
                     <Route path="/dashboard/create/course">
                         <CreateCourse />
                     </Route>
-                    <Route path="/dashboard/create/subject">
-                        <CreateSubject />
+                    <Route path="/dashboard/create/chapter">
+                        <CreateChapter />
+                    </Route>
+                    <Route path="/dashboard/create/:courseId/chapter">
+                        <CreateChapter />
                     </Route>
                 </Switch>
             </main>

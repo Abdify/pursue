@@ -52,11 +52,7 @@ function ResponsiveDrawer(props) {
             <ListItemIcon><EditAttributes /></ListItemIcon>
             <ListItemText primary={"Create Course"} />
           </ListItem>
-          <ListItem button key={2} component={Link} to="/dashboard/create/subject">
-            <ListItemIcon><EditAttributes /></ListItemIcon>
-            <ListItemText primary={"Create Subject"} />
-          </ListItem>
-          <ListItem button key={3} component={Link} to="/dashboard/create/chapter">
+          <ListItem button key={2} component={Link} to="/dashboard/create/chapter">
             <ListItemIcon><EditAttributes /></ListItemIcon>
             <ListItemText primary={"Create Chapter"} />
           </ListItem>

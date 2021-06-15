@@ -5,7 +5,6 @@ import Auth from "./components/Auth/Auth";
 import CheckUser from "./components/Auth/CheckUser";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Home from './components/Home/Home';
-import ChapterDetail from "./components/Learn/Chapters/ChapterDetail";
 import CourseDetail from "./components/Learn/Courses/CourseDetail/CourseDetail";
 import Learn from "./components/Learn/Learn";
 import Navbar from "./components/Navbar/Navbar";
@@ -29,11 +28,11 @@ const App = () => {
                         <Navbar />
                         <CourseDetail />
                     </Route>
-                    <Route path="/courses/:courseId/:chapterId">
+                    {/* <Route path="/courses/:courseId/:chapterId">
                         <Navbar />
                         <ChapterDetail />
                     </Route>
-                    
+                     */}
                     <Route path="/dashboard">
                         <Dashboard />
                     </Route>

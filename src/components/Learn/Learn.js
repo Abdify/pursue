@@ -1,6 +1,7 @@
 import { Container, Grid, Grow } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { getChapters } from '../../actions/chapters';
 import { getCourses } from '../../actions/courses';
 import Courses from './Courses/Courses';
 import useStyles from "./styles";
@@ -11,6 +12,7 @@ const Learn = () => {
 
         useEffect(() => {
             dispatch(getCourses());
+            dispatch(getChapters());
         }, [dispatch]);
 
     return (
